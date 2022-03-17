@@ -1,8 +1,5 @@
 const request = require('request');
 
-// breed ID is first 4 letters of breed
-//const breedName = process.argv.slice(2).join('').substring(0,4);
-
 const fetchBreedDescription = function(breedName, callback) {
   const breedURL = 'https://api.thecatapi.com/v1/breeds/search?q=' + breedName;
   
@@ -10,6 +7,7 @@ const fetchBreedDescription = function(breedName, callback) {
     if (error) return console.log('Request Failed: ', error);
     
     const data = JSON.parse(body);
+    
     if (data.length === 0) return callback(error, null);
 
     callback(null, data[0].description);
