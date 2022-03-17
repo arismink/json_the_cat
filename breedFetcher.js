@@ -1,5 +1,6 @@
 const request = require('request');
 
+// breed ID is first 4 letters of breed name
 const breed = process.argv.slice(2).join('').substring(0,4);
 const breedURL = 'https://api.thecatapi.com/v1/images/search?breed_ids=' + breed;
 
